@@ -74,7 +74,7 @@ def mostrar_menu():
                 print("Opcion erronea, ingrese nuevamente")
 
 
-def cargar_pacientes(pacientes:list)-> None:
+def cargar_pacientes(pacientes : list) -> None:
     '''
     funcion que recibe una lista por parametro
 
@@ -146,7 +146,7 @@ def cargar_pacientes(pacientes:list)-> None:
         
 
 
-def mostrar_pacientes(pacientes:list)-> None:
+def mostrar_pacientes(pacientes : list) -> None:
     '''
     funcion que recibe una lista por parametro
     verifica que no este vacia y la recorre
@@ -172,7 +172,7 @@ def mostrar_pacientes(pacientes:list)-> None:
 
 
 
-def realizar_busqueda(pacientes:list)-> None:
+def realizar_busqueda(pacientes : list) -> None:
     '''
     funcion que recibe una lista como parametro.
 
@@ -212,7 +212,7 @@ def realizar_busqueda(pacientes:list)-> None:
     else:
         print(f"No hay pacientes cargados aun")
 
-def organizar_pacientes(pacientes:list)-> None:
+def organizar_pacientes(pacientes : list) -> None:
     '''
     funcion que recibe una lista como parametro
 
