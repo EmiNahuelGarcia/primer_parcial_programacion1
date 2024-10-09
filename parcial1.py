@@ -74,13 +74,14 @@ def mostrar_menu():
                 print("Opcion erronea, ingrese nuevamente")
 
 
-def cargar_pacientes(pacientes):
+def cargar_pacientes(pacientes:list)-> None:
     '''
-    funcion que sirve para cargar un producto en el inventario
+    funcion que recibe una lista por parametro
 
-    se puede utilziar hasta que el usuario lo desee
+    permite cargar la cantidad de elementos que desee el usuario
+    va modificando la lista de forma dinamica en un bucle
     
-    no recibe parametros ni retorna valores
+    no retorna valores
     '''
     
     respuesta = "s"
@@ -142,33 +143,44 @@ def cargar_pacientes(pacientes):
             
             respuesta = input("Respuesta no valida. Ingrese 's' para continuar o 'n' para salir: ").lower()
 
-        return pacientes
-
-
-def mostrar_pacientes(pacientes):
-    
-    for i in range(len(pacientes)):
         
-        nombre = pacientes[i][1]
-        historial_clinico = pacientes[i][0]
-        edad = pacientes[i][2]
-        diagnostico = pacientes[i][3]
-        dias_internado =pacientes[i][4]
-        
-        print(f"Nombre del paciente: {nombre}, Historial: {historial_clinico}, Edad: {edad},Diagnostico:{diagnostico}, Dias de internacion {dias_internado}  ")
 
 
-
-def realizar_busqueda(pacientes):
+def mostrar_pacientes(pacientes:list)-> None:
     '''
-    Realiza la búsqueda de un producto en el inventario.
+    funcion que recibe una lista por parametro
+    verifica que no este vacia y la recorre
+    mostrando el contenido que esta dentro de ella
 
-    Esta función permite al usuario buscar un producto en el
-    inventario. Si el producto se encuentra, se muestra su precio y la
-    cantidad disponible en stock. Si no se encuentra, se notifica al
-    usuario. Si el inventario está vacío, se informa al usuario.
+    no retorna ningun valor
+    '''
+    
+    if len(pacientes) > 0:
 
-    No recibe parámetros ni retorna valores.
+        for i in range(len(pacientes)):
+            
+            nombre = pacientes[i][1]
+            historial_clinico = pacientes[i][0]
+            edad = pacientes[i][2]
+            diagnostico = pacientes[i][3]
+            dias_internado =pacientes[i][4]
+            
+            print(f"Nombre del paciente: {nombre}, Historial: {historial_clinico}, Edad: {edad},Diagnostico:{diagnostico}, Dias de internacion {dias_internado}  ")
+
+    else:
+        print(f"Todavia no se han cargado pacientes al sistema")
+
+
+
+def realizar_busqueda(pacientes:list)-> None:
+    '''
+    funcion que recibe una lista como parametro.
+
+    Esta función permite al usuario realizar una busqueda de un elemento
+    verifica que la lista no este vacia y la recorre.
+    muestra en pantalla un mensaje de resultado
+
+    no retorna valores.
     '''
     
     if len(pacientes) > 0:
@@ -200,15 +212,14 @@ def realizar_busqueda(pacientes):
     else:
         print(f"No hay pacientes cargados aun")
 
-def organizar_pacientes(pacientes):
+def organizar_pacientes(pacientes:list)-> None:
     '''
-    Organiza el inventario por precio de productos en orden ascendente.
+    funcion que recibe una lista como parametro
 
-    Esta función verifica si hay productos en el inventario. Si hay productos,
-    los organiza, ordenando los productos de menor a mayor. Luego, imprime los detalles de
-    cada producto en el inventario.
+    verifica que no este vacia y la recorre
+    Organiza la lista por el historial de los pacientes en orden ascendente.
 
-    No recibe parámetros ni retorna valores.
+    no retorna valores.
     '''
 
 
@@ -224,14 +235,15 @@ def organizar_pacientes(pacientes):
     else:
         print(f"No hay pacientes cargados aun") 
 
-def mostrar_mas_internado(pacientes):
+def mostrar_mas_internado(pacientes : list) -> None:
     '''
-    Muestra el producto mas caro y el mas barato del inventario.
+    funcion que recibe una lista como parametro
 
-    si existen productos en el inventario, realiza una busqueda 
-    de los productos mas caros y mas baratos , luego los muestra
+    verifica que no este vacia y la recorre
+    compara cada elemento de la lista
+    muestra el paciente con mas dias de internacion
 
-    No recibe parámetros ni retorna valores.
+    no retorna valores.
     '''
     if len(pacientes) > 0:
 
@@ -255,7 +267,17 @@ def mostrar_mas_internado(pacientes):
     else:
         print(f"No hay pacientes cargados aun") 
     
-def mostrar_menos_internado(pacientes):
+def mostrar_menos_internado(pacientes : list) -> None:
+
+    '''
+    funcion que recibe una lista como parametro
+
+    verifica que no este vacia y la recorre
+    compara cada elemento de la lista
+    muestra el paciente con mas dias de internacion
+
+    no retorna valores.
+    '''
 
     if len(pacientes) > 0:
 
@@ -279,7 +301,17 @@ def mostrar_menos_internado(pacientes):
     else:
         print(f"No hay pacientes cargados aun")
 
-def mostrar_pacientes_5_dias(pacientes):
+def mostrar_pacientes_5_dias(pacientes : list) -> None:
+
+    '''
+    funcion que recibe una lista como parametro
+    
+    verifica que no este vacia y la recorre
+    compara cada elemento de la lista en su ultimo indice
+    modifica la lista pacientes_mas_5 segun la condicion se cumpla
+
+    no retorna valores.
+    '''
 
     internacion_minima = 5
 
@@ -300,7 +332,15 @@ def mostrar_pacientes_5_dias(pacientes):
     else:
         print(f"No hay pacientes cargados aun")
 
-def hacer_promedio_internacion(pacientes):
+def hacer_promedio_internacion(pacientes : list) -> None:
+    '''
+    recibe una lista por parametro
+    
+    verifica que no este vacia y la recorre
+    realiza el promedio y lo muestra en pantalla
+
+    no retorna ningun valor
+    '''
 
     if len(pacientes) > 0:
     
