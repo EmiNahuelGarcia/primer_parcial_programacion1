@@ -1,12 +1,7 @@
 
-pacientes = [
-    
+pacientes = []
 
-]
-
-pacientes_mas_5 = [
-
-]
+pacientes_mas_5 = []
 
 
 def mostrar_menu():
@@ -289,7 +284,7 @@ def mostrar_menos_internado(pacientes : list) -> None:
                 paciente_menos_internado = paciente
             
             
-        print(f"El paciente con mayor dias de internacion es: {paciente_menos_internado[1]} con {paciente_menos_internado[4]} dias de internacion")
+        print(f"El paciente con menos dias de internacion es: {paciente_menos_internado[1]} con {paciente_menos_internado[4]} dias de internacion")
 
 
         
