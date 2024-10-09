@@ -1,12 +1,15 @@
 
 pacientes = [
-    [1284, "Jorge Gomez", 54, "Fiebre", 2],
+    [1284, "Jorge Gomez", 54, "Fiebre", 5],
     [1354, "Nahuel Perez", 54, "Cancer", 52],
-    [1212, "Nicolas Diaz", 54, "Fiebre", 5],
-    [1252, "Nicolas Diaz", 54, "Fiebre", 5]
+    [1212, "Nicolas Diaz", 54, "Fiebre", 6],
+    [1252, "Nicolas Diaz", 54, "Fiebre", -1]
 
 ]
 
+pacientes_mas_5 = [
+
+]
 
 
 def mostrar_menu():
@@ -27,7 +30,8 @@ def mostrar_menu():
 4• Ordenar pacientes por historial clinico.
 5• Mostrar paciente con mas dias de internacion.
 6. Mostrar paciente con menos dias de internacion.
-8. Promedio de dias de internacion de todos los pacientes.
+7. Cantidad de pacientes con días de internación mayor a 5 días.
+8. Promedio de internacion de todos los pacientes.
 9. Salir del sistema
 
         ''')
@@ -58,7 +62,9 @@ def mostrar_menu():
                 mostrar_menos_internado(pacientes)
 
             case "7":
-                pass
+                mostrar_pacientes_5_dias(pacientes)
+                mostrar_pacientes(pacientes_mas_5)
+                
 
             case "8":
                 pass
@@ -249,6 +255,28 @@ def mostrar_menos_internado(pacientes):
 
     else:
         print(f"No hay pacientes cargados aun")
+
+def mostrar_pacientes_5_dias(pacientes):
+
+    internacion_minima = 5
+
+    if len(pacientes) > 0:
+
+        for i in range(len(pacientes)):
+
+            if pacientes[i][4] > internacion_minima:
+
+                pacientes_mas_5.append([pacientes[i][0],pacientes[i][1],pacientes[i][2],pacientes[i][3],pacientes[i][4]])
+
+
+                
+                
+    
+        
+
+    else:
+        print(f"No hay pacientes cargados aun")
+
 
 
 mostrar_menu()
