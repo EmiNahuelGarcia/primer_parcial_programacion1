@@ -1,9 +1,6 @@
 
 pacientes = [
-    [1284, "Jorge Gomez", 54, "Fiebre", 5],
-    [1354, "Nahuel Perez", 54, "Cancer", 52],
-    [1212, "Nicolas Diaz", 54, "Fiebre", 6],
-    [1252, "Nicolas Diaz", 54, "Fiebre", -1]
+    
 
 ]
 
@@ -67,7 +64,7 @@ def mostrar_menu():
                 
 
             case "8":
-                pass
+                hacer_promedio_internacion(pacientes)
 
             case "9":
                 print("Finalizando sistema...")
@@ -104,12 +101,38 @@ def cargar_pacientes(pacientes):
 
         for _ in range(cantidad_pacientes):
       
-            historial_clinico = int(input("Ingrese el historial clinico del paciente: "))
-            nombre_paciente = input("Ingrese el nombre del paciente: ").capitalize
-            edad_paciente = int(input("Ingrese la edad del paciente: "))
-            diagnostico_paciente = input("Ingrese el diagnostico del paciente: ").capitalize
-            cantidad_internacion = int(input("Ingrese la cantidad de dias internado del paciente: "))
+            historial_clinico = -1
+
+            while historial_clinico < 1:
+                historial_clinico = input("Ingrese el historial clinico del paciente: ")
+                if historial_clinico.isdigit():
+                    historial_clinico = int(historial_clinico)
+                
+                else:
+                    historial_clinico = -1
+            nombre_paciente = input("Ingrese el nombre del paciente: ").capitalize()
+            
+            edad_paciente = -1
+           
+            while edad_paciente < 1:
+                edad_paciente = input("Ingrese la edad del paciente: ")
+                if edad_paciente.isdigit():
+                    edad_paciente = int(edad_paciente)
+                else:
+                    edad_paciente = -1
+            diagnostico_paciente = input("Ingrese el diagnostico del paciente: ").capitalize()
+            
+            cantidad_internacion = -1
+            
+            while cantidad_internacion < 1:
+                cantidad_internacion = input("Ingrese la cantidad de dias internado del paciente: ")
+                if cantidad_internacion.isdigit():
+                    cantidad_internacion = int(cantidad_internacion)
+                else:
+                    cantidad_internacion = -1
+            
             pacientes.append([historial_clinico, nombre_paciente, edad_paciente, diagnostico_paciente, cantidad_internacion])
+            print("Paciente cargado con exito")
         
         print("pacientes cargado con exito")
         
@@ -277,6 +300,27 @@ def mostrar_pacientes_5_dias(pacientes):
     else:
         print(f"No hay pacientes cargados aun")
 
+def hacer_promedio_internacion(pacientes):
 
+    if len(pacientes) > 0:
+    
+        acumulador_internacion = 0
+        cantidad_pacientes = 0
+    
+
+        for internacion in pacientes:
+
+            acumulador_internacion += internacion[4]
+            cantidad_pacientes += 1
+
+        
+
+        promedio_internacion = acumulador_internacion / cantidad_pacientes
+        
+        print(f"El promedio de dias de internacion es {promedio_internacion} por los {cantidad_pacientes} pacientes")
+        
+        
+    else:
+        print("Todavia no se han cargado pacientes al sistema")
 
 mostrar_menu()
